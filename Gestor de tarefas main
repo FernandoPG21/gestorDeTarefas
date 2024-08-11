@@ -1,0 +1,55 @@
+public class Tarefa {
+    private Long id;
+    private String descricao;
+    private Usuario responsavel;
+    private Status status;
+
+    public Tarefa(Long id, String descricao) {
+        this.id = id;
+        this.descricao = descricao;
+        this.status = Status.PENDENTE;
+    }
+
+    public void atribuirResponsavel(Usuario responsavel) {
+        this.responsavel = responsavel;
+    }
+
+    public void atualizarStatus(Status status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Tarefa [id=" + id + ", descricao=" + descricao + ", responsavel=" + (responsavel != null ? responsavel.getNome() : "Nenhum") + ", status=" + status.getStatus() + "]";
+    }
+}
+
+public class Usuario {
+    private Long id;
+    private String nome;
+
+    public Usuario(Long id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
+
+public class Status {
+    public static final Status PENDENTE = new Status("Pendente");
+    public static final Status EM_PROGRESO = new Status("Em Progresso");
+    public static final Status CONCLUIDO = new Status("Concluído");
+
+    private String status;
+
+    private Status(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+}
