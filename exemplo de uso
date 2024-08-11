@@ -1,0 +1,11 @@
+public class Main {
+    public static void main(String[] args) {
+        Tarefa tarefa1 = new Tarefa(1L, "Implementar sistema de tarefas");
+        Usuario usuario1 = new Usuario(1L, "João");
+
+        tarefa1.atribuirResponsavel(usuario1);
+        tarefa1.atualizarStatus(Status.EM_PROGRESO);
+
+        System.out.println(tarefa1);
+    }
+}
